@@ -6,7 +6,7 @@
 /*   By: kecheong <kecheong@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 01:09:25 by kecheong          #+#    #+#             */
-/*   Updated: 2025/01/09 03:28:32 by kecheong         ###   ########.fr       */
+/*   Updated: 2025/01/11 05:12:51 by kecheong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,18 @@ void	test()
 
 	typename ContainerType::iterator it;
 
-	println("Finding the number 3...");
 	it = easyfind(container, 3);
 	std::cout << "Found 3 at " << &(*it) << '\n';
 
-	println("Finding the number 5...");
 	it = easyfind(container, 5);
 	std::cout << "Found 5 at " << &(*it) << '\n';
 
-	println("Finding the number -42...");
 	it = easyfind(container, -42);
 	std::cout << "Found -42 at " << &(*it) << '\n';
 
-	println("Finding the number 9...");
 	it = easyfind(container, 9);
 	std::cout << "Found 9 at " << &(*it) << '\n';
 
-	println("Finding the number 0...");
 	it = easyfind(container, 0);
 	if (it == container.end())
 		std::cout << "Cannot find 0, got the end iterator instead\n";

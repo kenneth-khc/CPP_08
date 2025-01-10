@@ -6,13 +6,22 @@
 /*   By: kecheong <kecheong@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 01:09:34 by kecheong          #+#    #+#             */
-/*   Updated: 2025/01/09 02:57:14 by kecheong         ###   ########.fr       */
+/*   Updated: 2025/01/11 05:12:56 by kecheong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EASYFIND_HPP
 #define EASYFIND_HPP
 
+#include <algorithm>
+
+template<typename T>
+typename T::iterator	easyfind(T& container, int num)
+{
+	return std::find(container.begin(), container.end(), num);
+}
+
+#if 0 // Manual iteration
 template<typename T>
 typename T::iterator	easyfind(T& container, int num)
 {
@@ -28,5 +37,6 @@ typename T::iterator	easyfind(T& container, int num)
 	}
 	return end;
 }
+#endif
 
 #endif
