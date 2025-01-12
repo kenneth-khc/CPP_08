@@ -26,7 +26,6 @@ public:
 	~Span(); // destructor
 
 	void	addNumber(int);
-	/*void	getDistances();*/
 	int		shortestSpan();
 	int		longestSpan();
 

@@ -10,26 +10,43 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include <algorithm>
 #include <iterator>
 #include <numeric>
 #include <cmath>
 #include "Span.hpp"
 
+namespace
+{
+	const char*	GREEN = "\033[0;32m";
+	const char*	RED = "\033[0;31m";
+	const char*	C_RESET = "\033[0m";
+}
+
 Span::Span():
 size(0),
 numbers()
-{ }
+{ 
+	std::cout << GREEN << "Span default constructor called"
+			  << C_RESET << '\n';
+}
 
 Span::Span(unsigned int size):
 size(size),
 numbers()
-{ }
+{
+	std::cout << GREEN << "Span constructor called"
+			  << C_RESET << '\n';
+}
 
 Span::Span(const Span& other):
 size(other.size),
 numbers(other.numbers)
-{ }
+{
+	std::cout << GREEN << "Span copy constructor called"
+			  << C_RESET << '\n';
+}
 
 Span&	Span::operator=(const Span& rhs)
 {
@@ -41,7 +58,10 @@ Span&	Span::operator=(const Span& rhs)
 	return *this;
 }
 
-Span::~Span() { }
+Span::~Span()
+{
+	std::cout << RED << "Span destructor called" << C_RESET << '\n';
+}
 
 void	Span::addNumber(int newNumber)
 {
