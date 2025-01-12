@@ -26,7 +26,7 @@ public:
 	~Span(); // destructor
 
 	void	addNumber(int);
-	void	getDistances();
+	/*void	getDistances();*/
 	int		shortestSpan();
 	int		longestSpan();
 
@@ -36,7 +36,6 @@ public:
 private:
 	unsigned int		size;
 	std::vector<int>	numbers;
-	std::vector<int>	distances;
 };
 
 template<typename InputIt>
