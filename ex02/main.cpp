@@ -88,62 +88,89 @@ int	main()
 	{
 		MutantStack<std::string>	ms;
 		std::string	arr[] = {"one", "two", "three"};
+		println("Pushing into original stack...");
 		for (unsigned int i = 0; i < sizeof(arr)/sizeof(*arr); ++i)
 		{
 			ms.push(arr[i]);
+			println(ms.top());
 		}
+		println("------------------------------");
 		{
 			println("Testing copy construct...");
 			MutantStack<std::string>	msCopy(ms);
+			println("Printing copied stack's elements...");
 			for (MutantStack<std::string>::iterator it = msCopy.begin();
 				 it != msCopy.end();
 				 ++it)
 			{
-				std::cout << *it << '\n';
+				println(*it);
 			}
 		}
+		println("------------------------------");
 		{
+			println("Testing copy assignment...");
 			MutantStack<std::string>	anotherMS;
 			anotherMS = ms;
-			println("Testing copy assignment...");
+			println("Printing copied stack's elements...");
 			for (MutantStack<std::string>::iterator it = anotherMS.begin();
 				 it != anotherMS.end();
 				 ++it)
 			{
-				std::cout << *it << '\n';
+				println(*it);
 			}
 		}
+		println("------------------------------");
+		println("Iterating through the stack and modifying each element...");
 		for (MutantStack<std::string>::iterator it = ms.begin();
 			 it != ms.end();
 			 ++it)
 		{
-			*it += *it;
-			std::cout << *it << '\n';
+			*it += "begin";
+			println(*it);
 		}
-		/*for (MutantStack<std::string>::const_iterator it = ms.cbegin();*/
-		/*	 it != ms.end();*/
-		/*	 ++it)*/
-		/*{*/
-		/*	*it += *it;*/
-		/*	std::cout << *it << '\n';*/
-		/*}*/
+		println("------------------------------");
+		println("Reverse iterating through the stack and modifying each element...");
+		for (MutantStack<std::string>::reverse_iterator rit = ms.rbegin();
+			 rit != ms.rend();
+			 ++rit)
+		{
+			*rit += "reverse";
+			println(*rit);
+		}
+		println("------------------------------");
+		// const iterators point to a const element
+		for (MutantStack<std::string>::const_iterator it = ms.cbegin();
+			 it != ms.cend();
+			 ++it)
+		{
+			//*it = "cannot modify a const!";
+			println(*it);
+		}
+		println("------------------------------");
+		for (MutantStack<std::string>::const_reverse_iterator rit = ms.crbegin();
+			 rit != ms.crend();
+			 ++rit)
+		{
+			//*rit = "cannot modify a const!";
+			println(*rit);
+		}
 	
 	}
 #endif
 #if 0
-	println("Testing MutantStack of ints...");
+	println("Testing a MutantStack of ints...");
 	testMutantStack();
 	println("------------------------------");
 
-	println("Testing list of ints...");
+	println("Testing a list of ints...");
 	testContainer< std::list<int> >();
 	println("------------------------------");
 
-	println("Testing vector of ints...");
+	println("Testing a vector of ints...");
 	testContainer< std::vector<int> >();
 	println("------------------------------");
 
-	println("Testing deque of ints...");
+	println("Testing a deque of ints...");
 	testContainer< std::deque<int> >();
 	println("------------------------------");
 #endif
